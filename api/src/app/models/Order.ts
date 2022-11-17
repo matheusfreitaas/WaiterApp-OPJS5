@@ -9,10 +9,6 @@ export const Order = model('Order', new Schema({
     type: String,
     enum: ['WAITING', 'IN_PRODUCTION', 'DONE'],
     default: 'WAITING',
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    }
   },
   products: {
     required: true,
@@ -27,5 +23,9 @@ export const Order = model('Order', new Schema({
   quantity: {
     type: Number,
     default: 1,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   }
 }));

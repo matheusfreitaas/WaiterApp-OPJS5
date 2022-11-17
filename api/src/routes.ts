@@ -10,6 +10,8 @@ import { listOrders } from './app/useCases/orders/listOrders';
 import { createOrder } from './app/useCases/orders/createOrder';
 import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 import { deleteOrder } from './app/useCases/orders/deleteOrder';
+import { deleteCategory } from './app/useCases/categories/deleteCategory';
+import { deleteProduct } from './app/useCases/products/deleteProduct';
 
 export const router = Router();
 
@@ -24,30 +26,42 @@ const upload = multer({
   })
 });
 
-//Create categories
+//  ---- Categories ----
+
+//Create
 router.post('/categories', createCategory);
 
-//List categories
+//List
 router.get('/categories', listCategories);
 
-//List products
-router.get('/products', listProducts);
+//Delete
+router.delete('/categories/:categoryId', deleteCategory);
 
-//Create products
-router.post('/products', upload.single('image'), createProduct);
-
-//Get products by category
+//List category products
 router.get('/categories/:categoryId/products', listProductsByCategory);
 
-//Get orders
+//  ---- Products ----
+
+//List
+router.get('/products', listProducts);
+
+//Create
+router.post('/products', upload.single('image'), createProduct);
+
+//Delete
+router.delete('/products/:productId', deleteProduct);
+
+//  ---- Orders ----
+
+//List
 router.get('/orders', listOrders);
 
-//Create orders
+//Create
 router.post('/orders', createOrder);
 
-//Update order status
+//Update status
 router.patch('/orders/:orderId', changeOrderStatus);
 
-//Delete order
+//Delete
 router.delete('/orders/:orderId', deleteOrder);
 
