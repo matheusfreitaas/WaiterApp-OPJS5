@@ -4,27 +4,27 @@ import { Container } from './styles';
 
 const orders: Order[] = [
   {
-    '_id': '637629a161c2f79c4633dc55',
+    '_id': '6376ccc14a4548c88481469c',
     'table': '1',
     'status': 'WAITING',
     'products': [
       {
         'product': {
-          'name': 'Coca-Cola',
-          'imagePath': '1668686690438-coca-cola.png',
-          'price': 5,
+          'name': 'Duplo Smash',
+          'imagePath': '1668729126897-burger-molho-especial.png',
+          'price': 15,
         },
         'quantity': 2,
-        '_id': '637629a161c2f79c4633dc56'
+        '_id': '6376ccc14a4548c88481469d'
       },
       {
         'product': {
-          'name': 'Pizza Quatro Queijos',
-          'imagePath': '1668647548721-quatro-queijos.png',
-          'price': 50,
+          'name': 'Coca-Cola',
+          'imagePath': '1668717252629-coca-cola.png',
+          'price': 5,
         },
-        'quantity': 1,
-        '_id': '637629a161c2f79c4633dc57'
+        'quantity': 2,
+        '_id': '6376ccc14a4548c88481469e'
       }
     ],
   }
@@ -35,14 +35,17 @@ export function Orders() {
       <OrdersBoard
         icon="🕓"
         title="Fila de espera"
+        orders={orders}
       />
       <OrdersBoard
         icon="👩‍🍳"
         title="Em preparação"
+        orders={[]}
       />
       <OrdersBoard
         icon="✅"
         title="Pronto"
+        orders={[]}
       />
     </Container>
   );
